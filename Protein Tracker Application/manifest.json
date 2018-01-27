@@ -9,7 +9,12 @@
     },
     "permissions" : [
         "storage",
-        "notifications"
+        "notifications",
+        "contextMenus"
     ],
-    "options_page":"options.html"
+    "options_page":"options.html",
+    "background" : {
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    }
 }
