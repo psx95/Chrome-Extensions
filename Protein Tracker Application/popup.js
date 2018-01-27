@@ -21,7 +21,7 @@ $(function(){
     });*/
     $('#addamount').click(function () {
         // there is also a chrome.storage.local instead of the sync one, the difference is that the local one only gets the data from the local machine while the sync one will get the data from the account that is signed in, thus the extension will have the same data everywhere
-        chrome.storage.sync.get('total', function (items) {
+        chrome.storage.sync.get(['total','goal'], function (items) {
             var newTotal = 0;
             if (items.total) {
                 newTotal += parseInt(items.total);
@@ -30,9 +30,6 @@ $(function(){
             if (amount) {
                 newTotal += parseInt(amount);
             }
-            chrome.storage.sync.set({'total':newTotal});
-            $('#total').text(newTotal);
-            $('#amount').val('');
             if (newTotal >= items.goal) {
                 var opt = {
                     type: "basic",
@@ -42,6 +39,9 @@ $(function(){
                 }
                 chrome.notifications.create('goalReached',opt,function(){});
             }
+            chrome.storage.sync.set({'total':newTotal});
+            $('#total').text(newTotal);
+            $('#amount').val('');
         });
     });
 }); 

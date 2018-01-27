@@ -22,7 +22,7 @@ $(function () {
                 message: "Total has been rest back to the initial value.",
                 iconUrl: "icon.png"
             }
-            chrome.notifications.create('reset',opt,function(){});
+            chrome.notifications.create('reset',opt,function(){close()});
         });    
     });
 });
