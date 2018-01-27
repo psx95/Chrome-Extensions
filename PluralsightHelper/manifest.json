@@ -1,0 +1,32 @@
+{
+    "manifest_version":2,
+    "version":"0.1",
+    "name":"Pluralsight Helper",
+    "description":"Adds functionality to the pluralsight website",
+    
+    "page_action" : {
+        "default_icon":"icon.png",
+        "default_title":"pluralsight helper",
+        "default_popup":"popup.html"
+    },
+
+    
+    "permissions" : [
+        "tabs",
+        "http://app.pluralsight.com/*",
+        "http://www.pluralsight.com/*",
+        "http://www.facebook.com/*"
+    ],
+
+    "background": {
+        "scripts" : ["eventPage.js"],
+        "persistence" : false
+    },
+
+    "content_scripts": [
+        {
+            "matches":["https://app.pluralsight.com/library/*","https://www.facebook.com/*"],
+            "js":["pluralsight_cs.js","jquery-3.3.1.js"]
+        }
+    ]
+}
