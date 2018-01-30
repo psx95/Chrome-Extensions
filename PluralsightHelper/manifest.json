@@ -25,8 +25,9 @@
 
     "content_scripts": [
         {
-            "matches":["https://app.pluralsight.com/library/*","https://www.facebook.com/*"],
-            "js":["pluralsight_cs.js","jquery-3.3.1.js"]
+            "matches":["https://app.pluralsight.com/mentors/*","https://www.facebook.com/*"],
+            "js":["pluralsight_cs.js","jquery-3.3.1.js"],
+            "css":["pluralsight_cs.css"]
         }
     ]
 }
